@@ -1,0 +1,42 @@
+FROM tomcat:8-jre11
+
+RUN rm -rf /usr/local/tomcat/webapps/*
+COPY target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+WORKDIR /usr/local/tomcat/
+VOLUME /usr/local/tomcat/webapps
+-------------------
+FROM centos
+COPY ecommerce-master /var/www/html/ecommerce
+RUN yum update -y 
+RUN yum install -y httpd wget php-fpm php-mysqli php-json php php-devel
+CMD ["httpd", "-D", "FOREGROUND"]
+
+
+--------------
+                                            DOCKER QUESTIONS{ AJAY, MLI1196 }
+
+1)What do you know about the Docker system prune?
+It’s a command used to remove all stopped containers, unused networks, build caches, and dangling images. Prune is one of the most useful commands in Docker. 
+The syntax is:  $ docker system prune 
+ 
+all stopped containers
+unsed network 
+build caches
+dangling images
+
+2) what is dangling images?
+ 
+Dangling images are untaged and unused layer that exist on the host filesystem.
+Dangling image are unused  images thats got no name and tag.
+To list the dangling images
+
+docker images -f dangling=true  [ -f == filter flag ]
+
+To remove the dangling images
+
+docker rmi $(docker images -f dangling=true -q)
+
+3)what platform can you run docker on?
