@@ -1,0 +1,486 @@
+                                                                                                                                        SRI AJAY MATTHI
+                                                                                                                                        Employee ID:MLI1196         
+1.Write a shell script that deletes all lines containing a specified word in one or more files supplied as arguments to it?
+
+SCRIPT
+-------
+#!/bin/bash
+#let the text file be textfile.exe,we will view the content
+cat textfile.exe
+#deletestring= sed '/ajay/d' textfile.exe
+#echo "$deletestring" 
+deletestring= grep -v  'ajay' textfile.exe
+echo "$deletestring"
+
+OUTPU
+-------
+
+hi
+this is sriajay aged 27 born on 1995 of may
+sriajay studied 10 class in vidya vikas school
+sriajay studied 12 class in NARAYANA college
+sriajay studied btech in GUDLAVALLERU college
+finally working in  MOTIVITY JOBS as software engineer-Trainee
+ 
+hi
+finally working in  MOTIVITY JOBS as software engineer-Trainee
+
+
+
+
+
+2. Write a shell script to list all of the directory files in a directory?
+
+SCRIPT
+------
+#! /bin/bash
+echo "ls is the command to dispaly all the files and directories in current working directory"
+echo "----------------------------"
+ ls
+ echo "--------------------------------"
+ ls -lt
+ echo "----------------------------------"
+ls -lta
+
+OUTPUT
+------
+ls is the command to dispaly all the files and directories in current working directory
+----------------------------
+cronoutput  info  q1.sh  q2.sh  q3.sh  q4.sh  q5.sh  q6.sh  q7.sh  q8.sh  q9a.sh  q9b.sh  q9c.sh  textfile.exe
+--------------------------------
+total 52
+-rw-r--r-- 1 root   root     29 Feb 19 12:16 cronoutput
+-rw-rw-r-- 1 ubuntu ubuntu  219 Feb 19 12:09 q1.sh
+-rw-rw-r-- 1 ubuntu ubuntu  337 Feb 13 05:15 q4.sh
+-rw-rw-r-- 1 ubuntu ubuntu 1230 Feb 13 05:13 q6.sh
+-rw-rw-r-- 1 ubuntu ubuntu    0 Feb 13 05:12 q9c.sh
+-rw-rw-r-- 1 ubuntu ubuntu   98 Feb 12 20:05 q9b.sh
+-rw-rw-r-- 1 ubuntu ubuntu  181 Feb 12 19:52 q9a.sh
+-rw-rw-r-- 1 ubuntu ubuntu  657 Feb 12 19:41 q8.sh
+-rw-rw-r-- 1 ubuntu ubuntu   28 Feb 12 19:40 q7.sh
+-rw-rw-r-- 1 ubuntu ubuntu  232 Feb 12 19:14 q3.sh
+-rw-rw-r-- 1 ubuntu ubuntu  233 Feb 12 19:06 q5.sh
+-rw-rw-r-- 1 ubuntu ubuntu  252 Feb 12 18:27 q2.sh
+-rw-rw-r-- 1 ubuntu ubuntu  220 Feb 12 18:09 info
+-rw-rw-r-- 1 ubuntu ubuntu  249 Feb 12 14:39 textfile.exe
+----------------------------------
+total 60
+-rw-r--r--  1 root   root     29 Feb 19 12:16 cronoutput
+drwxrwxr-x  2 ubuntu ubuntu 4096 Feb 19 12:09 .
+drwxr-x--- 12 ubuntu ubuntu 4096 Feb 19 12:09 ..
+-rw-rw-r--  1 ubuntu ubuntu  219 Feb 19 12:09 q1.sh
+-rw-rw-r--  1 ubuntu ubuntu  337 Feb 13 05:15 q4.sh
+-rw-rw-r--  1 ubuntu ubuntu 1230 Feb 13 05:13 q6.sh
+-rw-rw-r--  1 ubuntu ubuntu    0 Feb 13 05:12 q9c.sh
+-rw-rw-r--  1 ubuntu ubuntu   98 Feb 12 20:05 q9b.sh
+-rw-rw-r--  1 ubuntu ubuntu  181 Feb 12 19:52 q9a.sh
+-rw-rw-r--  1 ubuntu ubuntu  657 Feb 12 19:41 q8.sh
+-rw-rw-r--  1 ubuntu ubuntu   28 Feb 12 19:40 q7.sh
+-rw-rw-r--  1 ubuntu ubuntu  232 Feb 12 19:14 q3.sh
+-rw-rw-r--  1 ubuntu ubuntu  233 Feb 12 19:06 q5.sh
+-rw-rw-r--  1 ubuntu ubuntu  252 Feb 12 18:27 q2.sh
+-rw-rw-r--  1 ubuntu ubuntu  220 Feb 12 18:09 info
+-rw-rw-r--  1 ubuntu ubuntu  249 Feb 12 14:39 textfile.exe
+
+3. Monitoring Disk Space utilization and Send Email Alert using script?
+
+SCRPIT
+------
+#!/bin/bash
+echo "df -h is the command to dispaly disk space utilization in human readable format"
+echo "---------------------" 
+b= df -h
+echo $b
+ RECIPIENT=sriajaymatthi5@gamil.com
+echo "$b" | mail -s "disk free usage" $RECIPIENT
+# For mail configurations more implemations and setting have to been done in mail setting. 
+
+OUTPUT
+------
+df -h is the command to dispaly disk space utilization in human readable format
+---------------------
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       7.6G  2.7G  4.9G  36% /
+tmpfs           484M     0  484M   0% /dev/shm
+tmpfs           194M  848K  193M   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/xvda15     105M  5.3M  100M   5% /boot/efi
+tmpfs            97M  4.0K   97M   1% /run/user/1000
+ 
+q3.sh: line 10: mail: command not found
+
+4. Write a simple script to install any tomcat server?
+
+SCRIPT
+------
+#!/bin/bash
+sudo apt-get update -y
+ <<mlc
+sudo apt-get install git
+git --version
+mlc 
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71-windows-x64.zip
+if
+[ $? -eq 0 ]
+then
+echo " ******************* tomact installed sucessfully ****************"
+else
+echo " ----not installed ---------------"
+fi
+
+OUTPUT
+-------
+Hit:1 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Get:3 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [107 kB]
+Get:4 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [898 kB]
+Get:5 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [197 kB]
+Get:6 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [13.5 kB]
+Get:7 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [624 kB]
+Get:8 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [96.3 kB]
+Get:9 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [853 kB]
+Get:10 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [164 kB]
+Get:11 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [17.3 kB]
+Get:12 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [9672 B]
+Get:13 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:14 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [643 kB]
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [134 kB]
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [582 kB]
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [90.4 kB]
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [678 kB]
+Get:19 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [105 kB]
+Get:20 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [13.1 kB]
+Fetched 5454 kB in 2s (2267 kB/s)
+Reading package lists... Done
+--2023-02-19 12:23:44--  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71-windows-x64.zip
+Resolving dlcdn.apache.org (dlcdn.apache.org)... 151.101.2.132, 2a04:4e42::644
+Connecting to dlcdn.apache.org (dlcdn.apache.org)|151.101.2.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 12871815 (12M) [application/zip]
+Saving to: 'apache-tomcat-9.0.71-windows-x64.zip'
+ 
+apache-tomcat-9.0.71-windows-x64.zip   100%[============================================================================>]  12.28M  --.-KB/s    in 0.1s
+ 
+2023-02-19 12:23:44 (107 MB/s) - 'apache-tomcat-9.0.71-windows-x64.zip' saved [12871815/12871815]
+ 
+******************* tomact installed sucessfully ****************
+
+5. write a shell script using arithmetic operators for adding, multiplication and subtraction of any two numbers?
+SCRIPT
+------
+#!/bin/bash
+echo  "entered  two inputs are $1 and $2"
+a=`expr $1 + $2 `
+echo "addation of  $1 and $2 is : $a"
+b=`expr $1 \* $2 `
+echo "multiplication of $1 and $2 is : $b"
+c=`expr $1 - $2 `
+echo "subtraction of  $1 and $2 is : $c"
+
+
+
+OUTPUT
+-------
+Enterd Input:   bash q5.sh  7 9
+entered  two inputs are 7 and 9
+addation of  7 and 9 is : 16
+multiplication of 7 and 9 is : 63
+subtraction of  7 and 9 is : -2
+
+
+6.This example script prompts the user to enter a month and outputs the number of days. There are three possible answers: 30 days, 31 days, 28 or 29 days for February.
+SCRIPT
+------
+#!/bin/bash
+echo "please enter the month"
+read "MONTH"
+ 
+case $MONTH in
+january)
+ 
+         echo "you have typed month of january"
+         echo "will have 31 days"
+;;
+ 
+February)
+        echo "you have entered february month"
+        echo "this month will have 28 days"
+;;
+March)
+ 
+         echo "you have entered march month"
+         echo "this monthwill have 31 days"
+;;
+ 
+April)
+ 
+         echo "you have entered April month"
+         echo "this month will have 30 days"
+;;
+May)
+         echo "you have entered may month"
+         echo "this month will have 31 days"
+;;
+June)
+ 
+         echo "you have entered june month"
+         echo "this month will have 30 days"
+;;
+July)
+ 
+         echo "you have entered july month"
+         echo "this month will have 31 days"
+;;
+August)
+ 
+         echo "you have entered August month"
+         echo "this month will have 31 days"
+;;
+September)
+ 
+         echo "you have entered september month"
+         echo "this month will have 30 days"
+;;
+Octomber)
+ 
+         echo "you have entered octomber month"
+         echo "this month will have 31 days"
+;;
+November)
+ 
+        echo "this month will have 30 days"
+ 
+;;
+Decmber)
+ 
+         echo "you have entered december month"
+         echo "this month will have 31 days"
+ 
+;;
+esac
+
+OUTPUT
+-----
+A)
+
+bash q6.sh
+please enter the month
+November
+you have enterd NOVEMBER month
+this month will have 30 days
+B)
+please enter the month
+March
+you have entered march month
+this monthwill have 31 days
+
+Q7. How to schedule cronjobs for running any script like backup of logs?
+SCRIPT
+------
+Open the Terminal and Run the following command to open the crontab editor.
+crontab -e
+In this editor create a new line as follow:
+*/1 * * * * /path/to/script.sh
+ For example, to run the script for every 8  minutes for incremental backup:
+*/8 * * * * echo "Incremental backup" >> /tmp/backup.log
+Save the file and exit the editor. The cron job is now set up and will run automatically according to the schedule.
+ we can view a list of all cron jobs for our user account by running the following command:
+crontab -l
+
+Q8. How will you debug a script if you have made any mistakes in a already written script?
+OUTPUT
+-------
+echo "normally we execute the shell script in normal mode...@.
+command is       bash filename.sh
+but to know where the error is occurring in which line  to see the output of each and every line we use debug mode
+and command is    bash -x filename.sh
+in debug mode entire script is going to run in debug mode but we want to run to specific line then specify that line in between sets i.e...set -x ,line,set +x...and run it in NORMAL MODEA
+ 
+set -x will starts debug mode
+set +x will ends the debug mode
+after specifying line in set -x n set +x run in NORMAL MODE then only specific line run in debug mode
+to run entire script then use sh -x filename.sh "
+OUTPUT
+
++ echo 'please enter the month'
+please enter the month
++ read MONTH
+january
++ case $MONTH in
++ echo 'you have typed month of january'
+you have typed month of january
++ echo 'will have 31 days'
+will have 31 days
+
+
+Q9. Script for iterations if-else, for, etc.,?
+SCRIPT
+------
+#! /bin/bash
+echo "ifelse"
+echo "enter your marks"
+read MARKS
+if [ $MARKS -gt 7 ]
+then
+echo "okay...good"
+elif [ $MARKS -eq 7 ]
+then
+echo "try hard"
+else
+echo "practice more"
+ fi
+OUTPUT
+--------
+ifelse
+enter your marks
+6
+practice more
+
+
+SCRIPT
+-------
+#!/bin/bash
+echo "while condition"
+a=5
+while [ $a -lt 10 ]
+do
+echo $a
+a=` expr $a + 1 `
+done
+OUTPUT
+-------
+while condition
+5
+6
+7
+8
+9
+
+
+
+
+1. Write a shell script to get current date, time, user name and current working directory.
+SCRIPT
+-------
+#!/bin/bash
+# date is the command to print the current date and time
+date
+#whoami is the command to print the username
+whoami
+#To know the current working directory  we use pwd
+pwd
+
+OUTPUT
+-------
+Mon Feb 20 00:46:39 UTC 2023
+ubuntu
+/home/ubuntu/2task
+
+2. Write a Shell Script that adds two numbers if provided as the command Line Argument and if the two numbers are not entered it outputs an Error Message along with a one-Line of how-to use description.
+
+SCRIPT
+-------
+#!/bin/bash
+if [ $# -lt 2 ]
+then
+    echo "command line arguments are missing "
+else
+    echo $(($1+$2))
+fi
+OUTPUT
+------
+bash q2.sh
+command line arguments are missing
+
+ubuntu@ip-172-31-12-118:~/2task$      bash q2.sh  2 6
+8
+
+
+3. You needs to print a given Number say 10572, in reverse order using a Shell script such that the input is provided using command Line Argument only. If the input data is not provided as Command Line Argument, it should throw and error and should suggest, how to use the script. Write the script but before that tell me the algorithm that needs to be implemented here.
+
+SCRIPT
+------
+#!/bin/bash
+ if [ $# -ne 1 ]
+then 
+echo "Please Enter the number"
+ exit 1
+fi
+n=$1
+rev=0
+sd=0
+ while [ $n -gt 0 ]
+do 
+sd=$(( $n % 10 ))
+rev=$(( $rev * 10 + $sd ))
+n=$(( $n / 10 ))
+done 
+echo "Reverse number of the given number is $rev"
+
+OUTPUT
+---------
+ubuntu@ip-172-31-12-118:~/2task$     bash q3.sh 1053
+Reverse number of the given number is 3501
+
+
+4. You are supposed to calculate a real number calculation directly from terminal and not any shell script. What will you do (say the real numbers are 7.56 and 2.453)?
+
+SCRIPT
+-------
+echo 7.56 + 2.453 | bc
+
+OUTPUT
+-------
+ubuntu@ip-172-31-12-118:~/2task$     echo 7.56 + 2.453 | bc
+10.013
+
+ubuntu@ip-172-31-12-118:~/2task$       echo 8.23 + 5.59 | bc
+13.82
+
+5. You are supposed to find the value of pi up to 100 places of decimal, what is the easiest way to get the result done.
+
+OUTPUT
+-----------
+ubuntu@ip-172-31-12-118:~/2task$ pi 100
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067
+ubuntu@ip-172-31-12-118:~/2task$ pi 5
+3.1415
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
